@@ -69,3 +69,5 @@ Sistema web estático para la gestión administrativa de una tienda de videojueg
 ## Notas
 
 Los productos creados, editados o eliminados se guardan en el almacenamiento local del navegador. Los datos pueden variar entre navegadores o al limpiar el almacenamiento del sitio.
+
+https://github.com/AleLUlatina/Lui-Alejandro-Semana-1
