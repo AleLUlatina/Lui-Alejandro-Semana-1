@@ -1,0 +1,19 @@
+# Entorno y seguridad
+.env
+*.log
+
+# Dependencias
+node_modules/
+.venv/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de compilación
+build/
+dist/
+
+# Editores de código
+.vscode/
+.idea/
