@@ -46,12 +46,24 @@ Sistema web estático para la gestión administrativa de una tienda de videojueg
 └── vendor/
 ```
 
+## Resumen de Decisiones
+
+| Decision | Descripción | 
+| :--- | :---: |
+| 1. Placeholder | Da ejemplos de datos |
+| 2. @Media | Ajuste del contenido en pantallas | 
+| 3. * Margin/Padding: 0 | Elimina los espacios y los margenes inncesarios |
+| 4. Sidebar Sticky | Sidebar fijo eliminando el scroll innecesario| 
+| 5. Overflow hidden body | Oculta contenido que se desborda | 
+
+
+
 ## Ejecución
 
 1. Descarga o clona el proyecto.
 2. Abre `index.html` en un navegador.
 3. Selecciona **Inicio de sesión** para acceder al panel administrativo.
-4. En el menú puedes selecciona el inventario, listado o formulario.
+4. En el menú puedes selecciona el inventario, historial de ventas o registrar ventas.
 5. Para volver al  `index.html` selecciona **Cerrar sesión**
 
 ## Notas
