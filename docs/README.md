@@ -51,8 +51,8 @@ Sistema web estático para la gestión administrativa de una tienda de videojueg
 1. Descarga o clona el proyecto.
 2. Abre `index.html` en un navegador.
 3. Selecciona **Inicio de sesión** para acceder al panel administrativo.
-
-También puedes abrir el proyecto con Live Server desde Visual Studio Code.
+4. En el menú puedes selecciona el inventario, listado o formulario.
+5. Para volver al  `index.html` selecciona **Cerrar sesión**
 
 ## Notas
 
