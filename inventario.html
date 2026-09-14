@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - PixelForge Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="contenedor-dashboard">
+        <div class="superposicion-movil" id="superposicion-movil"></div>
+        <aside class="barra-lateral">
+            <button type="button" class="boton-cerrar-barra" aria-label="Cerrar menú">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="logotipo">
+                <h2><i class="fa-solid fa-gamepad"></i> PixelForge</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="formulario.html"><i class="fa-solid fa-cart-plus"></i> Formulario</a></li>
+                    <li><a href="inventario.html" class="activo"><i class="fa-solid fa-box"></i> Inventario</a></li>
+                    <li><a href="listado.html"><i class="fa-solid fa-list-check"></i> Listado</a></li>
+                    <li><a href="index.html" class="enlace-salida"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="contenido-principal">
+            <header class="encabezado-principal">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button type="button" id="toggle-sidebar" class="boton-hamburguesa" aria-label="Abrir menú de navegación">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1>Inventario de Productos</h1>
+                </div>
+                <div class="perfil-usuario">
+                    <span>Administrador</span>
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+            </header>
+
+            <section class="cuadricula-estadisticas">
+                <div class="tarjeta-estadistica">
+                    <h3>Productos</h3>
+                    <p class="valor-estadistica">128</p>
+                    <span class="cambio-estadistica positivo">+8 esta semana</span>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Disponibles</h3>
+                    <p class="valor-estadistica">96</p>
+                    <span class="cambio-estadistica">72% del stock</span>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Bajo Stock</h3>
+                    <p class="valor-estadistica texto-cyber">14</p>
+                    <span class="cambio-estadistica">Revisar inventario</span>
+                </div>
+            </section>
+
+            <section class="panel-tarjeta">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <h2 style="margin: 0;"><i class="fa-solid fa-boxes-stacked"></i> Estado del almacén</h2>
+                    <div class="barra-herramientas-inventario">
+                        <label for="filtro-plataforma">Filtrar por plataforma</label>
+                        <select id="filtro-plataforma" class="filtro-plataforma">
+                            <option value="all">Todas</option>
+                            <option value="PS5">PS5</option>
+                            <option value="Switch">Switch</option>
+                            <option value="PC">PC</option>
+                        </select>
+                        <a href="agregar-producto.html" class="boton-enviar" style="width: auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.2rem;">
+                            <i class="fa-solid fa-plus"></i> Agregar producto
+                        </a>
+                    </div>
+                </div>
+                <div class="envoltorio-tabla">
+                    <table class="tabla-ventas">
+                        <thead>
+                            <tr>
+                                <th scope="col">Juego</th>
+                                <th scope="col">Plataforma</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-table-body">
+                            <tr>
+                                <td>Elden Ring</td>
+                                <td>PS5</td>
+                                <td>18</td>
+                                <td>$59.99</td>
+                                <td><span class="indicador-estado disponible">Disponible</span></td>
+                                <td>
+                                    <div class="fila-acciones">
+                                        <button type="button" class="boton-accion editar" data-index="-1" aria-label="Editar producto"><i class="fa-solid fa-pen"></i> Editar</button>
+                                        <button type="button" class="boton-accion eliminar" data-index="-1" aria-label="Eliminar producto"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Zelda: TotK</td>
+                                <td>Switch</td>
+                                <td>5</td>
+                                <td>$69.99</td>
+                                <td><span class="indicador-estado stock-bajo">Bajo stock</span></td>
+                                <td>
+                                    <div class="fila-acciones">
+                                        <button type="button" class="boton-accion editar" data-index="-1" aria-label="Editar producto"><i class="fa-solid fa-pen"></i> Editar</button>
+                                        <button type="button" class="boton-accion eliminar" data-index="-1" aria-label="Eliminar producto"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cyberpunk 2077</td>
+                                <td>PC</td>
+                                <td>0</td>
+                                <td>$29.99</td>
+                                <td><span class="indicador-estado sin-stock">Sin stock</span></td>
+                                <td>
+                                    <div class="fila-acciones">
+                                        <button type="button" class="boton-accion editar" data-index="-1" aria-label="Editar producto"><i class="fa-solid fa-pen"></i> Editar</button>
+                                        <button type="button" class="boton-accion eliminar" data-index="-1" aria-label="Eliminar producto"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="pie-publico">
+        <p>&copy; 2026 PixelForge Games Inc. Todos los derechos reservados.</p>
+        <p><small>Área Administrativa protegida por cifrado SSL.</small></p>
+    </footer>
+
+    <script src="js/menu.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('inventory-table-body');
+            const platformFilter = document.getElementById('filtro-plataforma');
+            if (!tableBody) return;
+
+            const defaultProducts = [
+                { name: 'Elden Ring', platform: 'PS5', stock: 18, price: 59.99 },
+                { name: 'Zelda: TotK', platform: 'Switch', stock: 5, price: 69.99 },
+                { name: 'Cyberpunk 2077', platform: 'PC', stock: 0, price: 29.99 }
+            ];
+
+            const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+            if (!storedProducts.length) {
+                localStorage.setItem('products', JSON.stringify(defaultProducts));
+            }
+
+            function renderInventory() {
+                const savedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+                tableBody.innerHTML = '';
+
+                const productsToRender = savedProducts.length > 0 ? savedProducts : defaultProducts;
+                const selectedPlatform = platformFilter ? platformFilter.value : 'all';
+
+                productsToRender.forEach((product, index) => {
+                    if (selectedPlatform !== 'all' && product.platform !== selectedPlatform) return;
+
+                    const stock = Number(product.stock || 0);
+                    const price = Number(product.price || 0);
+                    const statusClass = stock === 0 ? 'sin-stock' : stock <= 5 ? 'stock-bajo' : 'disponible';
+                    const statusText = stock === 0 ? 'Sin stock' : stock <= 5 ? 'Bajo stock' : 'Disponible';
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.name}</td>
+                        <td>${product.platform}</td>
+                        <td>${stock}</td>
+                        <td>$${price.toFixed(2)}</td>
+                        <td><span class="indicador-estado ${statusClass}">${statusText}</span></td>
+                        <td>
+                            <div class="fila-acciones">
+                                <button type="button" class="boton-accion editar" data-index="${index}" aria-label="Editar producto"><i class="fa-solid fa-pen"></i> Editar</button>
+                                <button type="button" class="boton-accion eliminar" data-index="${index}" aria-label="Eliminar producto"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                            </div>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            }
+
+            tableBody.addEventListener('click', (event) => {
+                const targetButton = event.target.closest('button');
+                if (!targetButton) return;
+
+                const index = Number(targetButton.dataset.index);
+
+                if (targetButton.classList.contains('eliminar')) {
+                    const savedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+                    savedProducts.splice(index, 1);
+                    localStorage.setItem('products', JSON.stringify(savedProducts));
+                    renderInventory();
+                    return;
+                }
+
+                if (targetButton.classList.contains('editar')) {
+                    window.location.href = `agregar-producto.html?editar=${index}`;
+                }
+            });
+
+            if (platformFilter) {
+                platformFilter.addEventListener('change', renderInventory);
+            }
+
+            renderInventory();
+        });
+    </script>
+</body>
+</html>

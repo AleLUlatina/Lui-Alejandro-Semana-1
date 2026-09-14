@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelForge Games | Tu Universo Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Pública -->
+    <header class="barra-navegacion-publica">
+        <div class="logotipo">
+            <h2><i class="fa-solid fa-gamepad"></i> PixelForge</h2>
+        </div>
+        <nav class="navegacion-publica">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#destacados">Destacados</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-navegacion">
+            <!-- Enlace directo al sistema de administración interno -->
+                <a href="dashboard.html" class="boton-portal" title="Acceso Empleados">
+                    <i class="fa-solid fa-lock"></i> Inicio de sesión
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Hero (Presentación Principal) -->
+    <section id="inicio" class="seccion-hero">
+        <div class="contenido-hero">
+            <span class="etiqueta-hero">Bienvenidos al Next Level</span>
+            <h1>Forjando las mejores experiencias de juego</h1>
+            <p>Somos PixelForge Games, distribuidores oficiales, desarrolladores de comunidad y tu tienda de confianza para consolas, componentes de PC y los títulos más esperados del año.</p>
+            <div class="botones-hero">
+                <a href="#destacados" class="boton-enviar" style="text-decoration: none; padding: 0.8rem 1.5rem;">Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="nosotros" class="seccion-compania">
+        <div class="titulo-seccion">
+            <h2>Nuestra Compañía</h2>
+            <p>Llevamos la pasión por los videojuegos en nuestro ADN técnico.</p>
+        </div>
+        <div class="cuadricula-nosotros">
+            <div class="tarjeta-nosotros">
+                <i class="fa-solid fa-rocket icono-inicio"></i>
+                <h3>Misión</h3>
+                <p>Proveer a la comunidad gamer el hardware y software más avanzado del mercado, garantizando transacciones seguras y soporte técnico especializado de primer nivel.</p>
+            </div>
+            <div class="tarjeta-nosotros">
+                <i class="fa-solid fa-eye icono-inicio"></i>
+                <h3>Visión</h3>
+                <p>Convertirnos en la plataforma líder de distribución y gestión de videojuegos en la región, impulsando los eSports y el comercio electrónico de entretenimiento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios corporativos -->
+    <section id="servicios" class="seccion-compania fondo-alterno">
+        <div class="titulo-seccion">
+            <h2>¿Qué Ofrecemos?</h2>
+            <p>Soluciones integrales tanto para jugadores casuales como profesionales.</p>
+        </div>
+        <div class="cuadricula-servicios">
+            <div class="elemento-servicio">
+                <i class="fa-solid fa-store texto-cyber"></i>
+                <h4>Venta y Distribución</h4>
+                <p>Licencias digitales instantáneas y copias físicas coleccionables con envíos a todo el país.</p>
+            </div>
+            <div class="elemento-servicio">
+                <i class="fa-solid fa-screwdriver-wrench texto-cyber"></i>
+                <h4>Soporte Técnico</h4>
+                <p>Mantenimiento preventivo de consolas de última generación y optimización/ensamble de PCs Master Race.</p>
+            </div>
+            <div class="elemento-servicio">
+                <i class="fa-solid fa-trophy texto-cyber"></i>
+                <h4>Eventos y Torneos</h4>
+                <p>Organización de ligas competitivas locales y patrocinio de arenas eSports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Productos Destacados -->
+    <section id="destacados" class="seccion-compania">
+        <div class="titulo-seccion">
+            <h2>Títulos Destacados de la Semana</h2>
+            <p>Los juegos más vendidos administrados en nuestra plataforma.</p>
+        </div>
+        <div class="carrusel-productos">
+            <button type="button" class="boton-carrusel" id="featured-prev" aria-label="Juego anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="exhibicion-productos" id="featured-products">
+                <div class="tarjeta-producto">
+                    <div class="insignia-producto">PS5</div>
+                    <img src="assets/images/eldenring.jpg" alt="Portada Elden Ring">
+                    <h4>Elden Ring</h4>
+                    <p class="precio">$59.99</p>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="insignia-producto switch">Switch</div>
+                    <img src="assets/images/zeldaTok.jpg" alt="Portada Zelda: Tears of the Kingdom">
+                    <h4>Zelda: Tears of the Kingdom</h4>
+                    <p class="precio">$69.99</p>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="insignia-producto pc">PC</div>
+                    <img src="assets/images/cyberpunk.jpg" alt="Portada Cyberpunk 2077">
+                    <h4>Cyberpunk 2077</h4>
+                    <p class="precio">$29.99</p>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="insignia-producto">PS5</div>
+                    <img src="assets/images/eldenring.png" alt="Portada God of War Ragnarök">
+                    <h4>God of War Ragnarök</h4>
+                    <p class="precio">$49.99</p>
+                </div>
+                <div class="tarjeta-producto">
+                    <div class="insignia-producto pc">PC</div>
+                    <img src="assets/images/cyberpunk.jpg" alt="Portada EA Sports FC 24">
+                    <h4>EA Sports FC 24</h4>
+                    <p class="precio">$39.99</p>
+                </div>
+            </div>
+            <button type="button" class="boton-carrusel" id="featured-next" aria-label="Siguiente juego">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="pie-publico">
+        <p>&copy; 2026 PixelForge Games Inc. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/carousel.js"></script>
+
+</body>
+</html>

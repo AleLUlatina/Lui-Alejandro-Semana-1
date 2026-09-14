@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto - PixelForge Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="contenedor-dashboard">
+        <div class="superposicion-movil" id="superposicion-movil"></div>
+
+        <aside class="barra-lateral">
+            <button type="button" class="boton-cerrar-barra" aria-label="Cerrar menú">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="logotipo">
+                <h2><i class="fa-solid fa-gamepad"></i> PixelForge</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="formulario.html"><i class="fa-solid fa-cart-plus"></i> Formulario</a></li>
+                    <li><a href="inventario.html"><i class="fa-solid fa-box"></i> Inventario</a></li>
+                    <li><a href="listado.html"><i class="fa-solid fa-list-check"></i> Listado</a></li>
+                    <li><a href="index.html" class="enlace-salida"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="contenido-principal">
+            <header class="encabezado-principal">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button type="button" id="toggle-sidebar" class="boton-hamburguesa" aria-label="Abrir menú de navegación">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1>Agregar Producto</h1>
+                </div>
+                <div class="perfil-usuario">
+                    <span>Administrador</span>
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+            </header>
+
+            <section class="panel-tarjeta">
+                <h2><i class="fa-solid fa-circle-plus"></i> Registrar nuevo videojuego</h2>
+                <form id="new-product-form">
+                    <div class="cuadricula-formulario-2">
+                        <div class="grupo-formulario">
+                            <label for="product-name">Nombre del videojuego</label>
+                            <input type="text" id="product-name" name="name" placeholder="Ej: Final Fantasy XVI" required>
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="product-platform">Plataforma</label>
+                            <select id="product-platform" name="platform" required>
+                                <option value="">Selecciona una plataforma</option>
+                                <option value="PS5">PS5</option>
+                                <option value="Xbox Series X|S">Xbox Series X|S</option>
+                                <option value="Switch">Switch</option>
+                                <option value="PC">PC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="cuadricula-formulario-3">
+                        <div class="grupo-formulario">
+                            <label for="product-stock">Stock</label>
+                            <input type="number" id="product-stock" name="stock" min="0" value="0" required>
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="product-price">Precio</label>
+                            <input type="number" id="product-price" name="price" min="0" step="0.01" value="0.00" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="boton-enviar boton-grande">
+                        <i class="fa-solid fa-plus"></i> Guardar producto
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/menu.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('new-product-form');
+            if (!form) return;
+
+            const params = new URLSearchParams(window.location.search);
+            const editingIndex = params.get('editar');
+            const title = document.querySelector('.contenido-principal h1');
+
+            if (title && editingIndex !== null) {
+                title.textContent = 'Editar Producto';
+            }
+
+            if (editingIndex !== null) {
+                const savedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+                const product = savedProducts[Number(editingIndex)];
+
+                if (product) {
+                    document.getElementById('product-name').value = product.name || '';
+                    document.getElementById('product-platform').value = product.platform || '';
+                    document.getElementById('product-stock').value = product.stock || 0;
+                    document.getElementById('product-price').value = product.price || 0;
+
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.innerHTML = '<i class="fa-solid fa-pen"></i> Guardar cambios';
+                    }
+                }
+            }
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const name = (formData.get('name') || '').toString().trim();
+                const platform = (formData.get('platform') || '').toString().trim();
+                const stock = Number(formData.get('stock') || 0);
+                const price = Number(formData.get('price') || 0);
+
+                if (!name || !platform) return;
+
+                const product = {
+                    name,
+                    platform,
+                    stock,
+                    price
+                };
+
+                const saved = JSON.parse(localStorage.getItem('products') || '[]');
+                if (editingIndex !== null && !Number.isNaN(Number(editingIndex)) && saved[Number(editingIndex)]) {
+                    saved[Number(editingIndex)] = product;
+                } else {
+                    saved.push(product);
+                }
+
+                localStorage.setItem('products', JSON.stringify(saved));
+
+                form.reset();
+                document.getElementById('product-stock').value = 0;
+                document.getElementById('product-price').value = '0.00';
+
+                window.location.href = 'inventario.html';
+            });
+        });
+    </script>
+</body>
+</html>

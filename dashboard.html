@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Ventas - PixelForge Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Contenedor Principal (Layout con Sidebar) -->
+    <div class="contenedor-dashboard">
+        <div class="superposicion-movil" id="superposicion-movil"></div>
+        
+        <!-- Barra Lateral de Navegación -->
+        <aside class="barra-lateral">
+            <button type="button" class="boton-cerrar-barra" aria-label="Cerrar menú">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="logotipo">
+                <h2><i class="fa-solid fa-gamepad"></i> PixelForge</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="dashboard.html" class="activo"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="formulario.html"><i class="fa-solid fa-cart-plus"></i> Formulario</a></li>
+                    <li><a href="inventario.html"><i class="fa-solid fa-box"></i> Inventario</a></li>
+                    <li><a href="listado.html"><i class="fa-solid fa-list-check"></i> Listado</a></li>
+                    <li><a href="index.html" class="enlace-salida"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="contenido-principal">
+            <header class="encabezado-principal">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button type="button" id="toggle-sidebar" class="boton-hamburguesa" aria-label="Abrir menú de navegación">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1>Panel de Administración de Ventas</h1>
+                </div>
+                <div class="perfil-usuario">
+                    <span>Administrador</span>
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+            </header>
+
+            <!-- Tarjetas de Estadísticas Rápidas -->
+            <section class="cuadricula-estadisticas">
+                <div class="tarjeta-estadistica">
+                    <h3>Ingresos Totales</h3>
+                    <p class="valor-estadistica">$1,245.50</p>
+                    <span class="cambio-estadistica positivo">+15% esta semana</span>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Juegos Vendidos</h3>
+                    <p class="valor-estadistica">42</p>
+                    <span class="cambio-estadistica">Copias físicas y digitales</span>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Más Vendido</h3>
+                    <p class="valor-estadistica texto-cyber">Cyberpunk 2077</p>
+                    <span class="cambio-estadistica">18 unidades</span>
+                </div>
+            </section>
+
+            <!-- Historial reciente de ventas -->
+            <div class="cuadricula-gestion">
+                <!-- Tabla de Historial de Ventas -->
+                <section class="panel-tarjeta contenedor-tabla-ventas transacciones-dashboard">
+                    <h2><i class="fa-solid fa-list-check"></i> Últimas Transacciones</h2>
+                    <div class="envoltorio-tabla">
+                        <table class="tabla-ventas">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Videojuego</th>
+                                    <th scope="col">Plataforma</th>
+                                    <th scope="col">Cant.</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1004</td>
+                                    <td><strong>Elden Ring</strong></td>
+                                    <td><span class="badge ps5">PS5</span></td>
+                                    <td>1</td>
+                                    <td>$59.99</td>
+                                </tr>
+                                <tr>
+                                    <td>#1003</td>
+                                    <td><strong>Zelda: TotK</strong></td>
+                                    <td><span class="badge switch">Switch</span></td>
+                                    <td>2</td>
+                                    <td>$139.98</td>
+                                </tr>
+                                <tr>
+                                    <td>#1002</td>
+                                    <td><strong>Cyberpunk 2077</strong></td>
+                                    <td><span class="badge pc">PC</span></td>
+                                    <td>1</td>
+                                    <td>$29.99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="pie-publico">
+        <p>&copy; 2026 PixelForge Games Inc. Todos los derechos reservados.</p>
+        <p><small>Área Administrativa protegida por cifrado SSL.</small></p>
+    </footer>
+
+    <script src="js/menu.js" defer></script>
+</body>
+</html>
